@@ -1,0 +1,35 @@
+<!DOCTYPE html5>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<title>ToDo List</title>
+	<style>
+		body{
+		background: linear-gradient(to right, red, blue);
+		}
+	</style>
+</head>
+<body>
+	<div class="jumbotron"  style="background: linear-gradient(to right, red, blue);">
+	  <div class="container text-center">
+	    <h1>TODO List</h1>
+	    <p>Flask Dvelopment by @jitendra-jeena</p>
+	    <form class="form-inline" action="/update/{{tasks.id}}" method="post">
+			{%if error%}{{error}}{%endif%}
+	    	<div class="form-group">
+
+	    			<input type="text" class="form-control" id="new_task" name = "updated_task"  size="80" value = "{{tasks.task}}">
+
+	  		</div>
+
+	    	<button class="btn btn-default" >Update Task</button>
+
+	    </form>
+ 	 </div>
+	</div>
+
+
+
+
+</body>
+</html>
