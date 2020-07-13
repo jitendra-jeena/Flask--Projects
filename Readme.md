@@ -7,7 +7,8 @@ A simple todo-list web application which provides the following functionality:
 * Delete a todo item
 
 The project makes use of Python3, Flask, SQLitea and Bootstrap.
-
+### Availabe at:
+https://todo-jj.herokuapp.com/
 ### Requirements:-
 * click==7.1.2
 * Flask==1.1.2
