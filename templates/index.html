@@ -1,0 +1,73 @@
+<!DOCTYPE html5>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<title>ToDo List</title>
+	<style>
+		body{
+		background: url(static/images/columns.jpg);
+		}
+	</style>
+</head>
+<body>
+	<div class="jumbotron" style="background: url(static/images/background.jpg)">
+	  <div class="container text-center">
+	    <h1>TODO List</h1>      
+	    <p>Flask Dvelopment by @jitendra-jeena</p>
+	    <form class="form-inline" action="/" method="post">
+			{%if error%}{{error}}{%endif%}
+	    	<div class="form-group">
+
+	    			<input type="text" class="form-control" id="new_task" name = "new_task"  size="80" placeholder="Enter new task...">
+	 
+	  		</div>
+
+	    	<button class="btn btn-default" >Add Task</button>
+
+	    </form>
+ 	 </div>
+	</div>
+
+
+	<!-- Container for Tasks boxes -->
+	<div class="container" >
+		{% if task_info|length < 1%}
+			<h1 class="text-center">There is no task. Please add one</h1>
+		{%else%}
+
+		<div class="row">
+				{%for T in task_info%}
+				<!-- Task Box -->
+				<div class="col-md-3">
+					<div class="card" style="background: url(static/images/container.jpg);padding:10px;margin-top: 10px; border-radius:25px">
+					<div class="card-body text-center">
+
+						<h5 class="card-title h3" style="color:white">{{T.task}}
+						{%if T.status%}
+								<span class="glyphicon glyphicon-ok"></span>
+						{%endif%}</h5>
+						<p class="card-text h4" >Created on: {{T.time.strftime('%d-%m-%Y') }}</p>
+
+					</div>
+						<button type="button" class="btn btn-success" onclick="perform_task('/complete/{{T.id}}')">
+
+							Completed
+						</button>
+						<button type="button" class="btn btn-info" onclick="perform_task('/update/{{T.id}}')">Update</button>
+						<button type="button" class="btn btn-danger" onclick="perform_task('/delete/{{T.id}}')">Delete</button>
+
+					</div>
+
+				</div>
+			{%endfor%}
+		</div>
+	</div>
+{%endif%}
+</body>
+<script>
+	function perform_task(url)
+	{
+     	location.href = url;
+	}
+</script>
+</html>
