@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block head %}
+<title>Enrollment</title>
+{%endblock%}
+
+{%block content%}
+
+<h1 class="text-center">Enrolled Courses</h1>
+
+<!-- Display the Term and Year here -->
+
+
+
+<div>
+
+    {%if not classes%}
+    <h1>You are not enrolled in any class</h1>
+    {%else%}
+
+    <table class="table tbale-hover">
+        <thead>
+            <tr>
+                <th scope = "col">Course Id </th>
+                <th scope = "col">Title </th>
+                <th scope = "col">Description </th>
+                <th scope = "col">Credits</th>
+                <th scope = "col">Term</th>
+            </tr>
+        </thead>
+        <!--Construct the rest courses here!-->
+        <tbody>
+            {%for class in classes%}
+            <tr>
+                <td>{{class.r2["courseID"]}} </td>
+                <td>{{class.r2["title"]}} </td>
+                <td>{{class.r2["description"] }}</td>
+                <td>{{class.r2["credits"]}}</td>
+                <td>{{class.r2["term"]}}</td>
+
+            </tr>
+        {%endfor%}
+        </tbody>
+    </table>
+    {%endif%}
+</div>
+{%endblock%}

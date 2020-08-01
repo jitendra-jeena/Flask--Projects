@@ -1,0 +1,54 @@
+{%extends "base.html"%}
+{%block head%}
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+	<title>Login</title>
+{%endblock%}
+
+{%block content%}
+
+
+
+   <div  style=" padding-top: 5%;padding-bottom:5% " >
+	<div class="container">
+
+		<div class="row no-gutters">
+
+			<div class = "col-md-4 "  ></div>
+
+					<div class = "col-md-4 " id = "main" >
+						<h3 class= "text-center">Sign in</h3><br>
+						<center>
+						<a href="#" class="fa fa-facebook"></a>
+						<a href="#" class="fa fa-twitter"></a>
+						<a href="#" class="fa fa-google"></a>
+						</center>
+						<hr>
+
+						 <form name = "login" action="#" method="POST" novalidate>
+							 {{form.hidden_tag()}}
+
+							  <div class="form-group">
+								   {{form.email.label}}<br>
+							 	 	{{form.email(size = 25)}}
+								  	{%for error in form.email.errors%}
+								  		<span class="error-message">{{error}}</span>
+								  	{%endfor%}
+							  </div>
+							  <div class="form-group">
+								    {{form.password.label}}<br>
+							 	 	{{form.password(size = 25)}}
+								  	{%for error in  form.password.errors%}
+								  	<span class="error-message">{{error}}</span>
+								  	{%endfor%}
+							  </div>
+
+
+							  	 {{form.submit() }}
+
+						</form>
+					</div>
+			</div>
+	</div>
+
+{%endblock%}

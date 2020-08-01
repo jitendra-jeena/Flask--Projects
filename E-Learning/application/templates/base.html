@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    {% block head %}
+    {%endblock%}
+</head>
+<body>
+    {% include "includes/nav.html"%}
+    {%with messages = get_flashed_messages(with_categories=true)%}
+        {%if messages%}
+            {%for cat,message in messages%}
+                <div class="alert alert-{{cat}}">
+                    <p>{{message}}</p>
+                </div>
+            {%endfor%}
+        {%endif%}
+    {%endwith%}
+
+    {%block content%}
+
+    {%endblock%}
+
+    <!--Include external file -->
+    {% include "includes/footer.html" %}
+
+</body>
+</html>
