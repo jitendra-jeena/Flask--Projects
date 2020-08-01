@@ -9,6 +9,16 @@ A simple E-Learning web application which provides the following functionality:
 
 The project makes use of Python3, Flask, MongoDB ,HTML, CSS and Bootstrap.
 
+### Sample:
+View sample screenshoots of application at : https://github.com/jitendra-jeena/Flask--Projects/tree/master/E-Learning/Sample.pdf
+
+### How To Run :
+* Clone/Download the Repository
+* Create a Virtual Environment :- `python3 -m venv <name_of_virtualenv>`
+* Download the requirements as:- `pip install -r requirements.txt`
+* Execute the app using : `flask run`
+
+
 ### Requirements:-
 Download the requirements as:- `pip install -r requirements.txt`
 * Babel==2.8.0
